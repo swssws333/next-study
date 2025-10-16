@@ -2,6 +2,9 @@
 // It describes the shape of the data, and what data type each property should accept.
 // For simplicity of teaching, we're manually defining these types.
 // However, these types are generated automatically if you're using an ORM such as Prisma.
+
+// 这个文件定义了类型，理论上应该是 .d.ts文件
+// 这里面定义了数据库中的类型，在这里也就是 placeholder-data.ts 里面的类型
 export type User = {
   id: string;
   name: string;
@@ -30,6 +33,10 @@ export type Revenue = {
   month: string;
   revenue: number;
 };
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
 
 export type LatestInvoice = {
   id: string;
