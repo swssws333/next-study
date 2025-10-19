@@ -88,7 +88,6 @@ export async function updateInvoice(id: string, formData: FormData) {
 }
 
 export async function deleteInvoice(id: string) {
-  throw new Error('Failed to Delete Invoice');
   await sql`DELETE FROM invoices WHERE id = ${id}`;
   // 调用revalidatePath将触发新的服务器请求并重新呈现表格。
   revalidatePath('/dashboard/invoices');
