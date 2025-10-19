@@ -47,9 +47,7 @@ export async function createInvoice(formData: FormData) {
   } catch (error) {
     // We'll also log the error to the console for now
     console.error(error);
-    return {
-      message: 'Database Error: Failed to Create Invoice.',
-    };
+    return ;
   }
   // 一旦数据库更新，/dashboard/invoices路径将重新验证，并从服务器获取新数据。也就是破坏客户端的缓存，从新从服务端拉取数据
   revalidatePath('/dashboard/invoices');
