@@ -1,6 +1,6 @@
 'use client';
 
-import {updateInvoice} from '@/app/lib/actions';
+import {State, updateInvoice} from '@/app/lib/actions';
 import {CustomerField, InvoiceForm} from '@/app/lib/definitions';
 import {
   CheckIcon,
@@ -10,6 +10,7 @@ import {
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import {Button} from '@/app/ui/button';
+import {useActionState} from "react";
 
 export default function EditInvoiceForm({
                                           invoice,
@@ -19,11 +20,14 @@ export default function EditInvoiceForm({
   customers: CustomerField[];
 }) {
 
+
+  const initialState: State = { message: null, errors: {} };
   // 这就是改变this指向的方法，null为this指向，所以传入null。然后又绑定了第一个参数为invoice.id
   const updateInvoiceWithId = updateInvoice.bind(null, invoice.id);
+  const [state, formAction] = useActionState(updateInvoiceWithId, initialState);
 
   return (
-    <form action={updateInvoiceWithId}>
+    <form action={formAction}>
       <div className="rounded-md bg-gray-50 p-4 md:p-6">
         {/* Customer Name */}
         <div className="mb-4">
