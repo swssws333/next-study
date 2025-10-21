@@ -6,6 +6,18 @@ import {lusitana} from '@/app/ui/fonts';
 import {InvoicesTableSkeleton} from '@/app/ui/skeletons';
 import {Suspense} from 'react';
 import { fetchInvoicesPages } from '@/app/lib/data';
+import { Metadata } from 'next';
+
+
+// export const metadata: Metadata = {
+//   title: 'Invoices | Acme Dashboard',
+// };
+
+// Navigate to the /dashboard/invoices page and check the <head> element. You should see the page title is now Invoices | Acme Dashboard.
+export const metadata: Metadata = {
+  title: 'Invoices',
+};
+
 
 type propType = {
   searchParams: Promise<{
@@ -13,6 +25,7 @@ type propType = {
     page?: string
   }>
 }
+
 export default async function Page(props: propType) {
 
   const searchParams = await props.searchParams;
